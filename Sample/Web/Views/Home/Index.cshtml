@@ -1,0 +1,24 @@
+﻿@model Web.Models.SyntaxHighlighterModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@section PageSpecificStyle
+{
+    @if(!string.IsNullOrEmpty(Model.Style)){
+        <link type="text/css" rel="stylesheet" href="~/Content/@(Model.Style).css" />
+    }
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.TextAreaFor(model => model.Code, new { Rows = 20, Cols = 100 })
+    <div>
+    Styles: @Html.DropDownListFor(model => model.Style, Model.Styles)
+        Languages : @Html.DropDownListFor(model => model.Language, Model.Languages)
+
+        <input type="submit" value="Highlight" />
+    </div>
+}
+
+ @Html.Raw(Model.HighlightedCode)
