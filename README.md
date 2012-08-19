@@ -10,11 +10,15 @@ Requirements
  * IronPython
  
  
-How to use it in your project
------------------------------
+Install with NuGet
+------------------
+Use the following command to install pygments-net to your application
 
- 1. Add reference to pygments.dll (This can be found under pygments-lib directory)
- 2. Use NuGet to add IronPython standard library to your project with the following command **Install-Package IronPython.StdLib**
+    Install-Package pygments-net
+
+
+
+For compiling the pyments code to .Net dll, run the build_pygment.bat file. Output *pygments.dll* will be created under the pygments-lib directory.
  
  
 
